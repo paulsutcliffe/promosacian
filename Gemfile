@@ -40,8 +40,17 @@ gem "capistrano"
 gem "rvm-capistrano"
 gem "haml"
 gem "haml-rails"
-gem "will_paginate"
 gem "inherited_resources"
 gem "page_title_helper"
-gem "friendly_id"
-gem "rspec-rails", :group => [:test, :development]
+
+group :development, :test do
+  gem "rspec-rails", "~> 2.13.0"
+  gem "factory_girl_rails", "~> 4.2.1"
+end
+
+group :test do
+  gem "faker", "~> 1.1.2"
+  gem "capybara", "~> 2.0.2"
+  gem "database_cleaner", "~> 0.9.1"
+  gem "launchy", "~> 2.2.0"
+end
