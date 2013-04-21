@@ -48,7 +48,7 @@
 
       %footer
         %p#bases
-          = link_to 'Ver bases y condiciones.', '#', target: '_blank'
+          Ver bases y condiciones.
           %br
           Promoción válida por este mes.
         = link_to image_tag('lain.png'), 'http://www.lainadelgaza.net', target: '_blank', id: 'lain'

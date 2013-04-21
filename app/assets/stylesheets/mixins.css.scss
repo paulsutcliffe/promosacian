@@ -1,0 +1,70 @@
+
+@mixin border-radius($value) {
+  -moz-border-radius: ($value);
+  -webkit-border-radius: ($value);
+  -o-border-radius: ($value);
+  border-radius: ($value);
+}
+
+// core 
+@mixin full-width {
+  width: 100%; float: left; clear: left;
+}
+
+@mixin size($width, $height) {
+  width: $width; height: $height;
+}
+
+@mixin absolute($side-horizontal, $side-vertical, $coord-x, $coord-y) {
+  position: absolute;
+  #{$side-vertical}: $coord-y;
+  #{$side-horizontal}: $coord-x;
+}
+@mixin relative($side-vertical, $side-horizontal, $coord-y, $coord-x) {
+  position: relative;
+  #{$side-vertical}: $coord-y;
+  #{$side-horizontal}: $coord-x;
+}
+
+@mixin inline-block {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1; vertical-align: top;
+  float: none;
+}
+
+@mixin min-height($value) {
+  min-height: $value;
+  *height: auto !important;
+  height: $value;
+}
+
+@mixin box-sizing($value) {
+  -moz-box-sizing: $value; -webkit-box-sizing: $value; -o-box-sizing: $value; box-sizing: $value;
+}
+
+@mixin clearfix2 {
+  content: "."; display: block; line-height: 0; clear: both; visibility: hidden; height: 0;
+  &:after {
+    *zoom: 1;
+  }
+}
+
+// core css3 animations
+$easeInBack: cubic-bezier(0.600, -0.280, 0.735, 0.045);
+$easeInCirc: cubic-bezier(0.600, 0.040, 0.980, 0.335);
+$easeInCubic: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+$easeInExpo: cubic-bezier(0.950, 0.050, 0.795, 0.035);
+$easeInOutBack: cubic-bezier(0.680, -0.550, 0.265, 1.550);
+$easeInOutCirc: cubic-bezier(0.785, 0.135, 0.150, 0.860);
+$easeInOutCubic: cubic-bezier(0.645, 0.045, 0.355, 1.000);
+$easeInOutExpo: cubic-bezier(1.000, 0.000, 0.000, 1.000);
+$easeInOutQuad: cubic-bezier(0.455, 0.030, 0.515, 0.955);
+$easeInOutQuart: cubic-bezier(0.770, 0.000, 0.175, 1.000);
+$easeInOutQuint: cubic-bezier(0.860, 0.000, 0.070, 1.000);
+$easeInOutSine: cubic-bezier(0.445, 0.050, 0.550, 0.950);
+
+
+
+
+

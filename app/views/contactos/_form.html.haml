@@ -1,5 +1,15 @@
 = form_for @contacto do |f|
+  #sello
+    = image_tag 'sello.png'
+  %legend
+    Completa tus datos, prueba Sacián de regalo, obtén
+    %br
+    una consulta de evaluación gratis y empieza ahora
+    %br
+    mismo a cambiar tu vida.
   - if @contacto.errors.any?
+    :javascript
+      document.getElementById('notice').style.background = 'red'
     #error_explanation
       %h2= "#{pluralize(@contacto.errors.count, "error")} prohibited this contacto from being saved:"
       %ul

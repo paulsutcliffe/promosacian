@@ -1,0 +1,44 @@
+@mixin border-radius($value) { 
+-moz-border-radius: ($value); -webkit-border-radius: ($value); -o-border-radius: ($value); border-radius: ($value)}
+$pink:  #e46d8e;
+$cyan: #748dc0;
+$blue: #305a8a;
+*{margin: 0; padding:0}
+body {background: url(../assets/fondo.jpg) no-repeat 50% 0; background: none; font: normal normal 15px/120% arial}
+#wrapper {width: 960px; margin: 0 auto; position: relative}
+#content {height: 640px}
+header {position: relative; z-index: 10; padding-top: 20px; height: 100px}
+section {position: relative; z-index: 50}
+footer {padding-bottom: 50px; float: left; clear: left; width: 100%}
+#sacian {position: relative; top: -95px; left: 90px}
+#bases {color: $blue; text-align: center; float: left; text-shadow: 0 0 5px #999; font-size: 16px; padding: 35px 0 0  80px; line-height: 140%; letter-spacing: 0.5px;
+  a {color: $blue; text-decoration: none}}
+#lain {float: right; position: relative; right: 60px}
+h1, h2 {color: $cyan; margin: 0; line-height: 100%; padding-left: 30px}
+h1 {font-size: 62px; text-transform: uppercase; }
+h2 {color: $blue; font-weight: normal; font-size: 18px; padding-left: 110px; padding-top: 18px}
+
+form {
+  h2 {padding:0}
+  #sello {position: absolute; top: -125px; right: -85px}
+  &#new_contacto {position: absolute; top: 130px; right:100px; width: 375px; min-height: 220px; padding: 12px 0 25px 27px}
+  background: $pink; 
+  @include border-radius(14px);
+  legend {color: white; padding-bottom: 20px; line-height: 120%}
+  label {width: 70px; float: left; color: white; padding-top: 8px}
+  .field {
+    float: left; clear: left; width: 100%; margin: 0; padding-bottom: 21px;
+    input {width: 270px; border: 0; padding: 8px 0; background: white}
+  }
+  .actions {
+    width: 100%; height: 60px; margin: 0; position: absolute; top: 90%; right: 0; padding-top: 10px; 
+    background: $pink; 
+    @include border-radius(14px);
+      input {width: 165px; height: 100px; position: relative; top: 0%; display: block; margin: 0 auto; cursor: pointer; text-indent: -9999px;
+        background: url(../assets/button.png) no-repeat -50px 0 ; border: 0;
+      }
+   }
+}
+
+#error_explanation {padding-bottom: 20px}
+p#notice {position: relative; top: 0; left: 0; width: 100%; padding: 10px 0; color: white; background: #22c62a; text-align: center}
