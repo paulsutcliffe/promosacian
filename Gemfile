@@ -42,6 +42,8 @@ gem "haml"
 gem "haml-rails"
 gem "inherited_resources"
 gem "page_title_helper"
+gem "devise"
+gem "will_paginate"
 
 group :development, :test do
   gem "rspec-rails", "~> 2.13.0"

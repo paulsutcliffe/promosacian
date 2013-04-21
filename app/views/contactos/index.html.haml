@@ -1,0 +1,18 @@
+%h1 Listing contactos
+
+= link_to 'Descargar Base de datos en format CSV para Excel', contactos_path(format: :csv)
+
+%table
+  %tr
+    %th Nombre
+    %th Telefono
+    %th Email
+    %th Fecha
+    %th
+
+  - @contactos.each do |contacto|
+    %tr
+      %td= contacto.nombre
+      %td= contacto.telefono
+      %td= contacto.email
+      %td= link_to 'Destroy', contacto, :method => :delete, :data => { :confirm => 'Are you sure?' }
