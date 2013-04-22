@@ -4,7 +4,7 @@ class ContactosController < InheritedResources::Base
   before_filter :authenticate_admin!, :except => [:new, :create]
   
   def index
-    @contactos = Contacto.order(:created_at)
+    @contactos = Contacto.order(:created_at).reverse_order.paginate(:page => params[:page], :per_page => 100)
 
     filename = "contactos_sacian_" + Date.today.strftime("%b%m%Y").gsub(/[^0-9a-z]/, "_") + ".csv"
 
@@ -38,6 +38,6 @@ class ContactosController < InheritedResources::Base
 
   protected
     def collection
-      @contactos ||= end_of_association_chain.paginate(:page => params[:page], :per_page => 10)
+      @contactos ||= end_of_association_chain.paginate(:page => params[:page], :per_page => 1)
     end
 end

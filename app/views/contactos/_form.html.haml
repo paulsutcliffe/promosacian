@@ -1,29 +1,42 @@
-= form_for @contacto do |f|
-  #sello
-    = image_tag 'sello.png'
-  %legend
-    Completa tus datos, prueba Sacián de regalo, obtén
-    %br
-    una consulta de evaluación gratis y empieza ahora
-    %br
-    mismo a cambiar tu vida.
-  - if @contacto.errors.any?
-    :javascript
-      document.getElementById('notice').style.background = 'red'
-    #error_explanation
-      %h2= "#{pluralize(@contacto.errors.count, "error")} prohibited this contacto from being saved:"
-      %ul
-        - @contacto.errors.full_messages.each do |msg|
-          %li= msg
+%h1 "Prueba y Comprueba"
+%h2 Prueba nuestro nuevo producto "Sacian" y comprueba que Lain sí funciona.
 
-  .field
-    = f.label :nombre
-    = f.text_field :nombre
-  .field
-    = f.label :telefono
-    = f.text_field :telefono
-  .field
-    = f.label :email
-    = f.text_field :email
-  .actions
-    = f.submit 'Save'
+%section#content{:role => 'main'}
+  = image_tag 'sacian.png', id: 'sacian'
+
+  = form_for @contacto do |f|
+    #sello
+      = image_tag 'sello.png'
+    %legend
+      Completa tus datos, prueba Sacián de regalo, obtén
+      %br
+      una consulta de evaluación gratis y empieza ahora
+      %br
+      mismo a cambiar tu vida.
+    - if @contacto.errors.any?
+      :javascript
+        document.getElementById('notice').style.background = 'red'
+      #error_explanation
+        %h2= "#{pluralize(@contacto.errors.count, "error")} prohibited this contacto from being saved:"
+        %ul
+          - @contacto.errors.full_messages.each do |msg|
+            %li= msg
+  
+    .field
+      = f.label :nombre
+      = f.text_field :nombre
+    .field
+      = f.label :telefono
+      = f.text_field :telefono
+    .field
+      = f.label :email
+      = f.text_field :email
+    .actions
+      = f.submit 'Save'
+
+%footer
+  %p#bases
+    = link_to 'Ver bases y condiciones.', '#', target: '_blank'
+    %br
+    Promoción válida por este mes.
+  = link_to image_tag('lain.png'), 'http://www.lainadelgaza.net', target: '_blank', id: 'lain'
