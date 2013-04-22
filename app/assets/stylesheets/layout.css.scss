@@ -1,5 +1,6 @@
 @mixin border-radius($value) { 
--moz-border-radius: ($value); -webkit-border-radius: ($value); -o-border-radius: ($value); border-radius: ($value)}
+-moz-border-radius: ($value); -webkit-border-radius: ($value); -o-border-radius: ($value); border-radius: ($value);
+*behavior: url(/PIE-1.0.0/PIE.htc)}
 $pink:  #e46d8e;
 $cyan: #748dc0;
 $blue: #305a8a;
