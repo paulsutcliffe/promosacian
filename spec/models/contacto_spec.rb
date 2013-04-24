@@ -14,7 +14,7 @@ describe Contacto do
   end
   it "is invalid without an email address" do
     expect(build(:contacto, email: nil)).to  \
-      have(1).errors_on(:email)
+      have(2).errors_on(:email)
   end
   it "is invalid without telefono" do
     expect(build(:contacto, telefono: nil)).to \

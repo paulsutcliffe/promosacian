@@ -31,6 +31,9 @@
     .field
       = f.label :email
       = f.text_field :email
+    .field
+      = f.label :pais
+      = f.select :pais, options_for_select(Contacto::PAISES, :selected => @country_code)
     .actions
       = f.submit 'Save'
 

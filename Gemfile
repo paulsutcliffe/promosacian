@@ -46,6 +46,7 @@ gem "inherited_resources"
 gem "page_title_helper"
 gem "devise"
 gem "will_paginate"
+gem "geocoder"
 
 group :development, :test do
   gem "rspec-rails", "~> 2.13.0"

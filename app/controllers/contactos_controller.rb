@@ -2,6 +2,28 @@
 class ContactosController < InheritedResources::Base
   actions :all, :except => [ :show, :edit, :update ]
   before_filter :authenticate_admin!, :except => [:new, :create]
+
+  def new
+    @contacto = Contacto.new
+
+    @country_code = request.location.country_code
+    case @country_code
+    when "PE"
+      @pais = 'Perú'
+    when "BO"
+      @pais = 'Bolivia'
+    when "CR"
+      @pais = 'Costa Rica'
+    when "GT"
+      @pais = 'Guatemala'
+    when "SV"
+      @pais = 'El Salvador'
+    when "UY"
+      @pais = 'Uruguay'
+    else
+      @pais = 'Perú'
+    end
+  end
   
   def index
     @contactos = Contacto.order(:created_at).reverse_order.paginate(:page => params[:page], :per_page => 100)
@@ -18,11 +40,23 @@ class ContactosController < InheritedResources::Base
 
   def create
     @contacto = Contacto.new(params[:contacto])
-
     create! do |success, failure|
       success.html do
-        ContactosMailer.confirmacion_de_contacto(@contacto).deliver
-        ContactosMailer.notificacion_de_contacto(@contacto).deliver
+        case params[:pais]
+        when :uy
+          ContactosMailer.contact_registration_uy(@contacto).deliver
+        when :bo
+          ContactosMailer.contact_registration_bo(@contacto).deliver
+        when :gt
+          ContactosMailer.contact_registration_gt(@contacto).deliver
+        when :pe
+          ContactosMailer.contact_registration_pe(@contacto).deliver
+        when :sv
+          ContactosMailer.contact_registration_sv(@contacto).deliver
+        when :cr
+          ContactosMailer.contact_registration_cr(@contacto).deliver
+        end
+        ContactosMailer.contact_confirmation(@contacto).deliver
 
         flash[:notice] = "Tu mensaje fue enviado con exito."
         redirect_to root_path

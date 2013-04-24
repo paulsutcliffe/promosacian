@@ -2,8 +2,8 @@
 %html
   %head
     %title= page_title
-    == <meta name="keywords" content="" />
-    == <meta name="description" content="" />
+    == <meta name="keywords" content="Sacian, Lain adelgaza" />
+    == <meta name="description" content="Sacian" />
     == <meta name="googlebot" content="index,follow" />
     == <meta name="robots" content="index,follow" />
     == <meta name="Revisit-After" content="7 days" />
@@ -26,7 +26,7 @@
       = stylesheet_link_tag 'application'
     = yield :css
 
-    = javascript_include_tag :defaults
+    = javascript_include_tag 'application'
     = yield :scripts
 
     /[if lt IE 9]

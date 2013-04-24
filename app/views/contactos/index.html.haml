@@ -1,7 +1,8 @@
 .container
-  %h1 Listing contactos
+  %h1 Listado de contactos SACIAN
   
   = link_to 'Descargar en formato Excel', contactos_path(format: :csv), :class => 'btn btn-primary'
+  = link_to 'Salir', destroy_admin_session_path, :method => :delete, :class => 'btn btn-primary'
   
   %br
   
@@ -11,6 +12,7 @@
         %th Nombre
         %th Telefono
         %th Email
+        %th País
         %th Fecha
         %th
   
@@ -19,7 +21,8 @@
         %td= contacto.nombre
         %td= contacto.telefono
         %td= contacto.email
-        %td= contacto.created_at.strftime("%I:%M%p %m %b %Y")
+        %td= image_tag '/assets/countries-flags/flag-' + contacto.pais  + '.png', :class => 'flag'
+        %td= contacto.created_at.strftime("%I:%M%p %d %b %Y")
         %td= link_to 'Eliminar', contacto, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => 'btn btn-mini btn-danger'
 
   = will_paginate @contactos
