@@ -1,6 +1,17 @@
 es:
   app:
-    name: Sacian
+    name: "Sacian | Saciante Natural | Sonía en vez de comer"
+
+  devise:
+    sessions:
+      new:
+        title: "Ingresar al panel de administración"
+
+  contactos:
+    index:
+      title: Listado de contactos
+    new:
+      title: "Prueba y Comprueba"
   date:
     abbr_day_names:
     - dom
