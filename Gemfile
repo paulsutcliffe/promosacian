@@ -19,7 +19,6 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
   gem 'less-rails'
-  gem 'twitter-bootstrap-rails'
 end
 
 gem 'jquery-rails'
@@ -40,6 +39,7 @@ gem "capistrano"
 # gem 'debugger'
 
 gem "rvm-capistrano"
+gem 'twitter-bootstrap-rails'
 gem "haml"
 gem "haml-rails"
 gem "inherited_resources"
