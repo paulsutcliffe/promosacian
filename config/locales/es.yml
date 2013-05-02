@@ -1,6 +1,6 @@
 es:
   app:
-    name: "Sacian | Saciante Natural | Sonía en vez de comer"
+    name: "Sacian | Saciante Natural | Sonría en vez de comer"
 
   devise:
     sessions:
@@ -22,7 +22,7 @@ es:
     - vie
     - sáb
     abbr_month_names:
-    - 
+    -
     - ene
     - feb
     - mar
@@ -48,7 +48,7 @@ es:
       long: ! '%A, %d de %B del %Y'
       short: ! '%d de %b'
     month_names:
-    - 
+    -
     - enero
     - febrero
     - marzo

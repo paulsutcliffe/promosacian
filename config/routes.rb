@@ -6,5 +6,7 @@ Promosacian::Application.routes.draw do
 
   resources :contactos
 
+  match 'terminos' => 'contactos#terminos'
+
   root :to => 'contactos#new'
 end

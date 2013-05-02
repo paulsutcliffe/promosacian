@@ -1,7 +1,7 @@
 # coding: utf-8
 class ContactosController < InheritedResources::Base
-  actions :all, :except => [ :show, :edit, :update ]
-  before_filter :authenticate_admin!, :except => [:new, :create]
+  actions :all, :except => [ :show, :edit, :update]
+  before_filter :authenticate_admin!, :except => [:terminos, :new, :create]
 
   def new
     @contacto = Contacto.new
@@ -24,7 +24,7 @@ class ContactosController < InheritedResources::Base
       @pais = 'Perú'
     end
   end
-  
+
   def index
     @contactos = Contacto.order(:created_at).reverse_order.paginate(:page => params[:page], :per_page => 100)
 
@@ -58,7 +58,7 @@ class ContactosController < InheritedResources::Base
         end
         ContactosMailer.contact_confirmation(@contacto).deliver
 
-        flash[:notice] = "Tu mensaje fue enviado con exito."
+        flash[:notice] = "Gracias por participar, pronto nos estaremos comunicando contigo para programar la consulta."
         redirect_to root_path
       end
 
@@ -68,6 +68,10 @@ class ContactosController < InheritedResources::Base
       end
 
     end
+  end
+
+  def terminos
+
   end
 
   protected

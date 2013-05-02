@@ -21,7 +21,7 @@
         %ul
           - @contacto.errors.full_messages.each do |msg|
             %li= msg
-  
+
     .field
       = f.label :nombre
       = f.text_field :nombre
@@ -39,7 +39,7 @@
 
 %footer
   %p#bases
-    = link_to 'Ver bases y condiciones.', '#', target: '_blank'
+    = link_to 'Ver bases y condiciones.', terminos_path, target: '_blank'
     %br
     Promoción válida por este mes.
   = link_to image_tag('lain.png'), 'http://www.lainadelgaza.net', target: '_blank', id: 'lain'
