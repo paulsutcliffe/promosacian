@@ -18,7 +18,6 @@ group :assets do
   gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
-  gem 'less-rails'
 end
 
 gem 'jquery-rails'
@@ -40,6 +39,7 @@ gem "capistrano"
 
 gem "rvm-capistrano"
 gem 'twitter-bootstrap-rails'
+gem 'less-rails'
 gem "haml"
 gem "haml-rails"
 gem "inherited_resources"
