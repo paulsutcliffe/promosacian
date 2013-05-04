@@ -17,7 +17,7 @@
       :javascript
         document.getElementById('notice').style.background = 'red'
       #error_explanation
-        %h2= "#{pluralize(@contacto.errors.count, "error")} prohibited this contacto from being saved:"
+        %h2= "#{pluralize(@contacto.errors.count, "error")} en el formulario"
         %ul
           - @contacto.errors.full_messages.each do |msg|
             %li= msg

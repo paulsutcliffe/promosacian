@@ -6,20 +6,14 @@ class Contacto < ActiveRecord::Base
 
   PAISES = [["Perú", "pe"],
             ["Bolivia", "bo"],
-            ["Costa Rica", "cr"],
-            ["Guatemala", "gt"],
-            ["El Salvador", "Ssv"],
-            ["Uruguay", "uy"]]
-
-  # validates_inclusion_of :pais, :in => PAISES
+            ["Costa Rica", "cr"]]
 
   validates :email, :nombre, :telefono, :presence => true
-
+  validates :email, :uniqueness => true
   validates :nombre, :length => { :maximum => 200 }
   validates :telefono, :length => { :maximum => 20 }
-  validates :email, :length => { :maximum => 100 }, 
+  validates :email, :length => { :maximum => 100 },
     :format => EMAIL_REGEX
-
 
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|

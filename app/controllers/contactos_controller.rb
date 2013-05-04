@@ -3,9 +3,9 @@ class ContactosController < InheritedResources::Base
   actions :all, :except => [ :show, :edit, :update]
   before_filter :authenticate_admin!, :except => [:terminos, :new, :create]
 
-  def new
-    @contacto = Contacto.new
+  before_filter :detect_pais
 
+  def detect_pais
     @country_code = request.location.country_code
     case @country_code
     when "PE"
@@ -14,12 +14,6 @@ class ContactosController < InheritedResources::Base
       @pais = 'Bolivia'
     when "CR"
       @pais = 'Costa Rica'
-    when "GT"
-      @pais = 'Guatemala'
-    when "SV"
-      @pais = 'El Salvador'
-    when "UY"
-      @pais = 'Uruguay'
     else
       @pais = 'Perú'
     end
@@ -42,18 +36,12 @@ class ContactosController < InheritedResources::Base
     @contacto = Contacto.new(params[:contacto])
     create! do |success, failure|
       success.html do
-        case params[:pais]
-        when :uy
-          ContactosMailer.contact_registration_uy(@contacto).deliver
-        when :bo
+        case @contacto.pais
+        when 'bo'
           ContactosMailer.contact_registration_bo(@contacto).deliver
-        when :gt
-          ContactosMailer.contact_registration_gt(@contacto).deliver
-        when :pe
+        when 'pe'
           ContactosMailer.contact_registration_pe(@contacto).deliver
-        when :sv
-          ContactosMailer.contact_registration_sv(@contacto).deliver
-        when :cr
+        when 'cr'
           ContactosMailer.contact_registration_cr(@contacto).deliver
         end
         ContactosMailer.contact_confirmation(@contacto).deliver
