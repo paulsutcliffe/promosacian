@@ -9,7 +9,7 @@ class Contacto < ActiveRecord::Base
             ["Costa Rica", "cr"]]
 
   validates :email, :nombre, :telefono, :presence => true
-  validates :email, :uniqueness => true
+  validates :email, :telefono, :uniqueness => true
   validates :nombre, :length => { :maximum => 200 }
   validates :telefono, :length => { :maximum => 20 }
   validates :email, :length => { :maximum => 100 },
