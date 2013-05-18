@@ -14,7 +14,7 @@ class ContactosMailer < ActionMailer::Base
 
   def contact_registration_cr(contact)
     @contacto = contact
-    mail(:to => "laincr@racsa.co.cr", :subject => "Mensaje desde la web de SACIAN Costa Rica")
+    mail(:to => "contactoweb.cr@laininternacional.com", :subject => "Mensaje desde la web de SACIAN Costa Rica")
   end
 
   def contact_registration_pe(contact)
