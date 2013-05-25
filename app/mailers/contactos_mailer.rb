@@ -2,7 +2,15 @@
 class ContactosMailer < ActionMailer::Base
   default :from => "sacian@lainadelgaza.net"
 
-  def contact_confirmation(contact)
+  def contact_confirmation_bo(contact)
+    @contacto = contact
+    mail(:to => "#{contact.nombre} <#{contact.email}>", :reply_to => contact.email, :subject => "SACIAN")
+  end
+  def contact_confirmation_cr(contact)
+    @contacto = contact
+    mail(:to => "#{contact.nombre} <#{contact.email}>", :reply_to => contact.email, :subject => "SACIAN")
+  end
+  def contact_confirmation_pe(contact)
     @contacto = contact
     mail(:to => "#{contact.nombre} <#{contact.email}>", :reply_to => contact.email, :subject => "SACIAN")
   end

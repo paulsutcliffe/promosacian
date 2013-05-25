@@ -39,12 +39,14 @@ class ContactosController < InheritedResources::Base
         case @contacto.pais
         when 'bo'
           ContactosMailer.contact_registration_bo(@contacto).deliver
+          ContactosMailer.contact_confirmation_bo(@contacto).deliver
         when 'pe'
           ContactosMailer.contact_registration_pe(@contacto).deliver
+          ContactosMailer.contact_confirmation_pe(@contacto).deliver
         when 'cr'
           ContactosMailer.contact_registration_cr(@contacto).deliver
+          ContactosMailer.contact_confirmation_cr(@contacto).deliver
         end
-        ContactosMailer.contact_confirmation(@contacto).deliver
 
         flash[:notice] = "Gracias por participar, pronto nos estaremos comunicando contigo para programar la consulta."
         redirect_to root_path
